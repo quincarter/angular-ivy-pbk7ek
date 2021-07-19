@@ -1,6 +1,15 @@
 <h1>Use this input field</h1>
-<label for="dateInput">Start Date: </label>
-<input type="date" id="dateInput" [ngModel]="date" (ngModelChange)="date = updateDate($event)"/>
+<div class="container">
+  <div class="input-container">
+    <label for="dateInput">Start Date: </label>
+    <input type="date" id="dateInput" [ngModel]="date" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="date = $event"/>
+  </div>
+
+  <div class="input-container">
+    <label for="moneyInput">Some Money Value (formats on blur): </label>
+    <input type="text" id="moneyInput" [ngModel]="moneyValue | currency" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="moneyValue = $event"/>
+  </div>
+</div>
 
 
 <ng-container *ngIf="date">

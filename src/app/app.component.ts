@@ -7,8 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   date: string;
-
-  updateDate($event: string) {
-    return $event;
-  }
+  moneyValue: string;
 }
