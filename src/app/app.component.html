@@ -10,21 +10,29 @@
   <!--Currency Input-->
   <div class="input-container">
     <label for="moneyInput">Some Money Value (formats on blur): </label>
-    <input type="text" id="moneyInput" [ngModel]="moneyValue | currency" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="moneyValue = $event"/>
+    <input placeholder="type a number value and a comma/dollar sign will be added" type="text" id="moneyInput" [ngModel]="moneyValue | currency" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="moneyValue = $event"/>
   </div>
 </div>
 
 
-<ng-container *ngIf="date">
-  <h2>Date Format Preview (Date Picker Value)</h2>
-  <p>{{date}}</p>
-  <h2>Formatted</h2>
-  <pre>Custom Formatting 1: {{ date | date: 'MM/dd/yyyy' }}</pre>
-  <pre>Custom Formatting 2: {{ date | date: 'yyyy/MM/dd' }}</pre>
-  <pre>Custom Formatting 3: {{ date | date: 'yyyy-MM-dd' }}</pre>
-  <pre>Custom Formatting 4: {{ date | date: 'dd/MM/yyyy' }}</pre>
 
-  <pre>Full: {{ date | date: 'full' }}</pre>
-  <pre>Short: {{ date | date: 'short' }}</pre>
-  <pre>Long: {{ date | date: 'long' }}</pre>
+<ng-container *ngIf="!date">
+  <p>Enter a Date for it to appear here</p>
+  <hr />
+</ng-container>
+
+<ng-container *ngIf="date">
+  <hr class="date-format-preview" />
+  <h2>Date Format Preview (Date Picker Value)</h2>
+  <p class="date">{{date}}</p>
+  <hr />
+  <h2>Formatted</h2>
+  <pre>Custom Formatting 1: <strong class="date">{{ date | date: 'MM/dd/yyyy' }}</strong></pre>
+  <pre>Custom Formatting 2: <strong class="date">{{ date | date: 'yyyy/MM/dd' }}</strong></pre>
+  <pre>Custom Formatting 3: <strong class="date">{{ date | date: 'yyyy-MM-dd' }}</strong></pre>
+  <pre>Custom Formatting 4: <strong class="date">{{ date | date: 'dd/MM/yyyy' }}</strong></pre>
+
+  <pre>Full: <strong class="date">{{ date | date: 'full' }}</strong></pre>
+  <pre>Short: <strong class="date">{{ date | date: 'short' }}</strong></pre>
+  <pre>Long: <strong class="date">{{ date | date: 'long' }}</strong></pre>
 </ng-container>
