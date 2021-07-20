@@ -1,10 +1,13 @@
-<h1>Use this input field</h1>
+<h1>Inputs with Angular Pipes</h1>
 <div class="container">
+
+  <!--Date Input with Pipe -- different formats -- just a note that you cannot change the date value for that input type if you want it to autofill from an API, but you can set the display of the date in the pipe-->
   <div class="input-container">
     <label for="dateInput">Start Date: </label>
     <input type="date" id="dateInput" [ngModel]="date" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="date = $event"/>
   </div>
 
+  <!--Currency Input-->
   <div class="input-container">
     <label for="moneyInput">Some Money Value (formats on blur): </label>
     <input type="text" id="moneyInput" [ngModel]="moneyValue | currency" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="moneyValue = $event"/>
