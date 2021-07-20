@@ -6,16 +6,17 @@ h1,
 h2,
 h3,
 h4 {
+  color: DarkSlateGray;
   font-weight: 100;
 }
 
 .date {
-  color: green;
+  color: forestgreen;
   font-weight: 400;
 }
 
 .error {
-  color: red;
+  color: tomato;
 }
 
 .container,
@@ -35,4 +36,8 @@ h4 {
 .date-format-preview,
 .filler-template {
   margin-top: 2rem;
+}
+
+.filler-template {
+  color: rebeccapurple;
 }
