@@ -18,18 +18,21 @@ h4 {
   color: red;
 }
 
-.container {
+.container,
+.input-container {
   display: flex;
   flex-direction: column;
+}
+
+.container {
   gap: 2rem;
 }
 
 .input-container {
-  display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
-.date-format-preview {
+.date-format-preview,
+.filler-template {
   margin-top: 2rem;
 }

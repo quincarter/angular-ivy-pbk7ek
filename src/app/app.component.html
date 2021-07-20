@@ -7,21 +7,40 @@
     <input type="date" id="dateInput" [ngModel]="date" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="date = updateDate($event)"/>
   </div>
 
+
+  <!--NOTE that the rest of these input types are all type="text"-->
   <!--Currency Input-->
   <div class="input-container">
     <label for="moneyInput">Some Money Value (formats on blur): </label>
     <input placeholder="type a number value and a comma/dollar sign will be added" type="text" id="moneyInput" [ngModel]="moneyValue | currency" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="moneyValue = $event"/>
   </div>
+
+  <!--Percent Input-->
+  <div class="input-container">
+    <label for="percentInput">Some percentage number (formats and calculates on blur): </label>
+    <input placeholder="type a number and a % will be calculated" type="text" id="percentInput" [ngModel]="percentValue | percent" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="percentValue = $event"/>
+  </div>
+
+  <!--Titlecase Input-->
+  <div class="input-container">
+    <label for="firstAndLastName">{{titleCaseStringExample | titlecase}}: </label>
+    <input placeholder="e.g. Enter your First and Last Name or just type a sentence" type="text" id="firstAndLastName" [ngModel]="firstAndLastName | titlecase" (ngModelChange)="firstAndLastName = $event"/>
+  </div>
 </div>
 
 
 
+
+
+<!--Display template for the Date formats-->
+
+
 <!--Filler Template-->
-<ng-container *ngIf="!date">
-  <p *ngIf="!error">Enter a Date for it to appear here</p>
+<div class="filler-template" *ngIf="!date">
+  <p *ngIf="!error">Enter a Date (above) for it to show examples here</p>
   <p class="error" *ngIf="error">Invalid Date Entered</p>
   <hr />
-</ng-container>
+</div>
 
 <!--Preview Template-->
 <ng-container *ngIf="date">
