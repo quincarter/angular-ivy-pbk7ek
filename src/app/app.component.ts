@@ -10,8 +10,8 @@ export class AppComponent {
   moneyValue: string;
   error: string;
 
+  // Only checks to see if the date is blank -- that indicates an error from the pipe
   updateDate($event) {
-    // Only checks to see if the date is blank -- that indicates an error from the pipe
     this.error = $event === '' ? 'Invalid Date Entered' : '';
     return $event;
   }
