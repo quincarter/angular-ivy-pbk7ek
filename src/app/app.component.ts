@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   date: string;
   moneyValue: string;
+  error: string;
+
+  updateDate($event) {
+    // Only checks to see if the date is blank -- that indicates an error from the pipe
+    this.error = $event === '' ? 'Invalid Date Entered' : '';
+    return $event;
+  }
 }

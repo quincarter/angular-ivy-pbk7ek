@@ -4,7 +4,7 @@
   <!--Date Input with Pipe -- different formats -- just a note that you cannot change the date value for that input type if you want it to autofill from an API, but you can set the display of the date in the pipe-->
   <div class="input-container">
     <label for="dateInput">Start Date: </label>
-    <input type="date" id="dateInput" [ngModel]="date" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="date = $event"/>
+    <input type="date" id="dateInput" [ngModel]="date" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="date = updateDate($event)"/>
   </div>
 
   <!--Currency Input-->
@@ -16,11 +16,14 @@
 
 
 
+<!--Filler Template-->
 <ng-container *ngIf="!date">
-  <p>Enter a Date for it to appear here</p>
+  <p *ngIf="!error">Enter a Date for it to appear here</p>
+  <p class="error" *ngIf="error">Invalid Date Entered</p>
   <hr />
 </ng-container>
 
+<!--Preview Template-->
 <ng-container *ngIf="date">
   <hr class="date-format-preview" />
   <h2>Date Format Preview (Date Picker Value)</h2>
